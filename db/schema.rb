@@ -11,6 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20130924205958) do
+
+  create_table "forecast_days", force: true do |t|
+    t.integer  "weather_locale_id"
+    t.integer  "avg_high_f"
+    t.integer  "avg_high_c"
+    t.integer  "avg_low_f"
+    t.integer  "avg_low_c"
+    t.integer  "precip"
+    t.integer  "todays_high_f"
+    t.integer  "todays_high_c"
+    t.integer  "todays_low_f"
+    t.integer  "todays_low_c"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "weather_locales", force: true do |t|
+    t.string   "link"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

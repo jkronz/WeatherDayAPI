@@ -1,0 +1,3 @@
+class WeatherLocalesController < ApplicationController
+	
+end
