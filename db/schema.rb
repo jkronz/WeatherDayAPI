@@ -11,10 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130924205958) do
+ActiveRecord::Schema.define(version: 20130924204355) do
 
-  create_table "forecast_days", force: true do |t|
-    t.integer  "weather_locale_id"
+  create_table "weather_locales", force: true do |t|
+    t.string   "link"
+    t.string   "time_zone"
+    t.string   "name"
     t.integer  "avg_high_f"
     t.integer  "avg_high_c"
     t.integer  "avg_low_f"
@@ -24,13 +26,6 @@ ActiveRecord::Schema.define(version: 20130924205958) do
     t.integer  "todays_high_c"
     t.integer  "todays_low_f"
     t.integer  "todays_low_c"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "weather_locales", force: true do |t|
-    t.string   "link"
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -12,7 +12,6 @@ class WundergroundApi
 			if response.code == 200
 				json = JSON.parse(response.body)
 				forecast_attributes = {
-					weather_locale: weather_locale,
 		    	avg_high_f: json['almanac']['temp_high']['normal']['F'].to_i,
 		    	avg_high_c: json['almanac']['temp_high']['normal']['C'].to_i,
 		    	avg_low_f: json['almanac']['temp_low']['normal']['F'].to_i,
@@ -23,7 +22,7 @@ class WundergroundApi
 		    	todays_low_f: json['forecast']['simpleforecast']['forecastday'][0]['low']['fahrenheit'].to_i,
 		    	todays_low_c: json['forecast']['simpleforecast']['forecastday'][0]['low']['celsius'].to_i
 				}	
-				ForecastDay.create!(forecast_attributes)			
+				weather_locale.update_attributes(forecast_attributes)
 			else
 				Rails.logger.error("Wunderground returned error code #{response.code}: #{response.body}")
 			end
